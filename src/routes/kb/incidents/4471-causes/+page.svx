@@ -2,7 +2,7 @@
 layout: runbook
 title: '#4471 · two problems, not one'
 owner: Damian Drewnik
-status: open
+status: closed
 reviewed: 2026-11-05
 signature: Damian Drewnik
 ---
@@ -19,11 +19,11 @@ signature: Damian Drewnik
   };
 </script>
 
-[#4471](/kb/incidents/4471) is marked known, with one issue and one fix queued. Its reports describe
-two problems, and the queued fix addresses one of them.
+[#4471](/kb/incidents/4471) was marked known, with one issue and one fix queued. Its reports describe
+two problems, and they ended differently. Engineering closed #4471 on 5 October.
 
 <Callout>
-Do not close #4471 when the parser fix ships. The hint problem will still be open.
+The parser is fixed. The hint is not fixed: booking-v3's form was retired instead.
 </Callout>
 
 ## The problems
@@ -31,10 +31,10 @@ Do not close #4471 when the parser fix ships. The hint problem will still be ope
 <ProblemTable ticket={4471} {tickets} />
 
 - **`parser`:** the shared parser reads every date month first, so tenants that write the day first
-  get the day and month swapped. This is the bug the queued fix is for.
+  get the day and month swapped. Fixed by `fix(dates): parse dd/mm for eu locales`.
 - **`hint`:** booking-v3's form tells people to type `MM/DD/YYYY`, then reads what they type the
   tenant's way. Only reports through that form belong here. The same tenants' app and email reports
-  are `parser`.
+  are `parser`. Closed as won't fix, because the form was retired.
 
 ## How the reports were counted
 
@@ -43,7 +43,7 @@ once. Intake's tag was not used, because it follows the reporter's browser and n
 
 The note under the table lists the reports the desk read as a one-day move. They stay under `parser`,
 as the desk files them by tenant, but their text does not describe a swap. A time zone cause was not
-confirmed or ruled out, so check whether they stop once the parser fix ships.
+confirmed or ruled out, and the export ends before the fix, so check whether they stop now that it has shipped.
 
 ## How they came to be merged
 
@@ -55,8 +55,8 @@ get several tickets. It did not consider one ticket hiding several bugs.
 
 ## What the desk should do
 
-- Ship the parser fix, and keep the `hint` ticket open until it has its own fix.
-- Reply to the booking-v3 tenants that the parser fix will not cover their form.
+- Watch new reports for dates that still move by one day. If they continue, open a new ticket.
+- Check that no tenant still takes bookings through booking-v3's form, because the hint bug remains in it.
 - Write a new decision record to replace 0001, one that merges on cause. The
   [triage page](/kb/triage/dedupe) follows 0001 and would change with it.
 
