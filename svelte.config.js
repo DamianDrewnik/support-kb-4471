@@ -15,6 +15,6 @@ export default {
     adapter: adapter({ pages: 'build', assets: 'build', strict: false }),
     alias: { '#lib': 'src/lib', '#lib/*': 'src/lib/*' },
     inlineStyleThreshold: 100000,
-    prerender: { entries: ['/kb', '/kb/incidents/4471', '/kb/triage/dedupe', '/kb/decisions/0001-dedupe-by-subject'] },
+    prerender: { entries: ['/kb', '/kb/incidents/4471', '/kb/incidents/4471-causes', '/kb/triage/dedupe', '/kb/decisions/0001-dedupe-by-subject'] },
   },
 };

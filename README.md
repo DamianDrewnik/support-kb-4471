@@ -27,6 +27,11 @@ src/lib/data/       exports from the ticket system
 - A decision is never edited after it is accepted. A new record replaces it.
 - A page you add is signed: its frontmatter carries your `signature` and it ends with `<RenderStamp {signature} />`, so the desk knows who wrote it.
 
+## Building
+
+`npm install && npm run build` renders the kb into `build/`. The export had `src/` only, so the build setup here is new.
+`rendered/kb/incidents/4471-causes/index.html` is a built copy of the page about #4471, as the desk will see it.
+
 ## Owners
 
 Support desk. Decision records: whoever signed them.
