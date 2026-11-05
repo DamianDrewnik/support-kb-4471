@@ -23,7 +23,7 @@ signature: Damian Drewnik
 two problems, and the queued fix addresses one of them.
 
 <Callout>
-Do not close #4471 when the parser fix ships. The `hint` problem will still be open.
+Do not close #4471 when the parser fix ships. The hint problem will still be open.
 </Callout>
 
 ## The problems
