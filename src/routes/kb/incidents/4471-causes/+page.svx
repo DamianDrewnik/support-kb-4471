@@ -1,6 +1,6 @@
 ---
 layout: runbook
-title: '#4471 · three problems, not one'
+title: '#4471 · two problems, not one'
 owner: Damian Drewnik
 status: open
 reviewed: 2026-11-05
@@ -16,15 +16,14 @@ signature: Damian Drewnik
   const tickets = {
     parser: 'https://github.com/DamianDrewnik/support-kb-4471/issues/1',
     hint: 'https://github.com/DamianDrewnik/support-kb-4471/issues/2',
-    'one-day shift': 'https://github.com/DamianDrewnik/support-kb-4471/issues/3',
   };
 </script>
 
 [#4471](/kb/incidents/4471) is marked known, with one issue and one fix queued. Its reports describe
-three problems, and the queued fix addresses one of them.
+two problems, and the queued fix addresses one of them.
 
 <Callout>
-Do not close #4471 when the parser fix ships. The other two problems will still be open.
+Do not close #4471 when the parser fix ships. The `hint` problem will still be open.
 </Callout>
 
 ## The problems
@@ -36,29 +35,27 @@ Do not close #4471 when the parser fix ships. The other two problems will still 
 - **`hint`:** booking-v3's form tells people to type `MM/DD/YYYY`, then reads what they type the
   tenant's way. Only reports through that form belong here. The same tenants' app and email reports
   are `parser`.
-- **`one-day shift`:** these reports describe a booking off by one day, or different days for
-  different people, and not a swap. A time zone bug is the likely lead, but it is not confirmed.
 
 ## How the reports were counted
 
 Each report is placed by its tenant and way in, using `causes.ts`, and repeated export rows count
 once. Intake's tag was not used, because it follows the reporter's browser and not the tenant.
 
-The cause table on the #4471 page has no third row. It files the one-day reports under `parser` by
-tenant, as the desk notes say, so its `parser` count includes them. The table above takes them out
-because their symptom is different. If the investigation shows they are swaps, they go back.
+The note under the table lists the reports the desk read as a one-day move. They stay under `parser`,
+as the desk files them by tenant, but their text does not describe a swap. A time zone cause was not
+confirmed or ruled out, so check whether they stop once the parser fix ships.
 
 ## How they came to be merged
 
 <QueueTimeline ticket={4471} />
 
 [Decision 0001](/kb/decisions/0001-dedupe-by-subject) merges reports on subject line alone, and
-reporters describe all three problems with the same few subjects. The rule accepts that one bug may
+reporters describe both problems with the same few subjects. The rule accepts that one bug may
 get several tickets. It did not consider one ticket hiding several bugs.
 
 ## What the desk should do
 
-- Ship the parser fix, then keep the other two tickets open until each has its own fix.
+- Ship the parser fix, and keep the `hint` ticket open until it has its own fix.
 - Reply to the booking-v3 tenants that the parser fix will not cover their form.
 - Write a new decision record to replace 0001, one that merges on cause. The
   [triage page](/kb/triage/dedupe) follows 0001 and would change with it.
