@@ -4,7 +4,7 @@ title: '#4471 · two problems, not one'
 owner: Damian Drewnik
 status: closed
 reviewed: 2026-11-05
-signature: Damian Drewnik
+signature: v1.eyJzdWIiOiIxNTE3IiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTM4Njc5ODEsImV4cCI6MTc5Mzk1NDM4MX0.1JzlQ6dwGGQNtXIu244wwLcioGgvuVbnNnRSFjinICo
 ---
 
 <script>
